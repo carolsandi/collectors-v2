@@ -1,0 +1,14 @@
+type Zone {
+  id: ID!
+  name: String!
+  rates: [Rate!]! @hasMany
+  created_at: DateTime!
+  updated_at: DateTime!
+  deleted_at: DateTime
+}
+
+extend type Query {
+  zones(
+    name: String @where(operator: "ilike")
+  ): [Zone!]! @paginate
+}

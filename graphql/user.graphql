@@ -1,0 +1,11 @@
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  phone: String!
+  avatar: String!
+  provider: String!
+  provider_id: String!
+  collector: Collector @hasOne
+  requests: [Request!]! @hasMany
+}

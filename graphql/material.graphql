@@ -1,0 +1,15 @@
+type Material {
+  id: ID!
+  description: String!
+  image: String!
+  requests: [Request!]! @hasMany
+  created_at: DateTime!
+  updated_at: DateTime!
+  deleted_at: DateTime
+}
+
+extend type Query {
+  materials(
+    description: String @where(operator: "ilike")
+  ): [Material!]! @paginate
+}

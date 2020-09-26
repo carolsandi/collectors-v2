@@ -1,0 +1,13 @@
+type Rate {
+  id: ID!
+  rate: Double!
+  zone_id: Int!
+  zone: Zone! @belongsTo
+  created_at: DateTime!
+  updated_at: DateTime!
+  deleted_at: DateTime
+}
+
+extend type Query {
+  rates: [Rate!]! @paginate
+}

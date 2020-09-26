@@ -1,0 +1,17 @@
+type CollectorSchedule {
+  id: ID!
+  collector_id: Int!
+  day: String!
+  start_time: String!
+  end_time: String!
+  collector: Collector! @belongsTo
+  created_at: DateTime!
+  updated_at: DateTime!
+  deleted_at: DateTime
+}
+
+extend type Query {
+  schedule(
+    collector_id: Int! @eq
+  ): [CollectorSchedule!]! @paginate
+}

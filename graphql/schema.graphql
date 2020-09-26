@@ -1,0 +1,17 @@
+"A date string with format `Y-m-d`, e.g. `2011-05-23`."
+scalar Date @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date")
+
+"A datetime string with format `Y-m-d H:i:s`, e.g. `2018-05-23 13:43:32`."
+scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\DateTime")
+
+type Query
+type Mutation
+
+#import collector_schedule.graphql
+#import collector.graphql
+#import material.graphql
+#import rate.graphql
+#import request_material.graphql
+#import request.graphql
+#import user.graphql
+#import zone.graphql

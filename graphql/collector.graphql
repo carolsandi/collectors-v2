@@ -1,0 +1,19 @@
+type Collector {
+  id: ID!
+  user_id: Int!
+  zone_id: Int!
+  plate: String!
+  rating: Double!
+  active: Boolean!
+  zone: Zone! @belongsTo
+  user: User! @belongsTo
+  schedule: [CollectorSchedule!]! @hasMany
+  requests: [Request!]! @hasMany
+  created_at: DateTime!
+  updated_at: DateTime!
+  deleted_at: DateTime
+}
+
+extend type Query {
+  collectors: [Collector!]! @paginate
+}

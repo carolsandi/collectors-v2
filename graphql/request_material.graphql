@@ -1,0 +1,11 @@
+type RequestMaterial {
+  id: ID!
+  request_id: Int!
+  material_id: Int!
+  kg: Double!
+  image: String!
+  notes: String
+  created_at: DateTime!
+  updated_at: DateTime!
+  deleted_at: DateTime
+}

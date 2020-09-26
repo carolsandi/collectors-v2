@@ -1,0 +1,25 @@
+type Request {
+  id: ID!
+  user_id: Int!
+  collector_id: Int
+  start_time: String
+  end_time: String
+  start_latitude: Double
+  end_latitude: Double
+  start_longitude: Double
+  end_longitude: Double
+  status: String
+  price: Double
+  collector: Collector! @belongsTo
+  user: User! @belongsTo
+  materials: [RequestMaterial!]! @hasMany
+  created_at: DateTime!
+  updated_at: DateTime!
+  deleted_at: DateTime
+}
+
+extend type Query {
+  requests(
+    status: String @eq
+  ): [Request!]! @paginate
+}
